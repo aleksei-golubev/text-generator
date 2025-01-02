@@ -2,7 +2,7 @@
   "name": "text-generator",
   "version": "1.0.0",
   "scripts": {
-    "start": "node ./backend.js"
+    "start": "node ./backend.mjs"
   },
   "author": "",
   "license": "ISC",
