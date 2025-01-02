@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link href="styles/main.css" rel="stylesheet" type="text/css" />
+        <link href="favicon.svg" rel="icon" sizes="any" type="image/svg+xml" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Roboto+Flex:opsz,wght@8..144,100..1000&display=swap" rel="stylesheet" />
+        <script src="scripts/main.js"></script>
+        <title>Textos generados</title>
+    </head>
+    <body class="roboto-flex-mod">
+        <div class="top-header">
+            <h1 class="oswald-mod">Textos generados</h1>
+        </div> 
+        <div class="page-content">
+            <div class="quick-request-form">
+                Introduce el asunto del texto:
+                <input class="roboto-flex-mod" type="text" size="25" id="topic">
+                y nivel:
+                <select class="roboto-flex-mod" id="level">
+                    <option value="A1">A1</option>
+                    <option value="A1-A2">A1-A2</option>
+                    <option value="A2">A2</option>
+                    <option value="A2-B1">A2-B1</option>
+                    <option value="B1">B1</option>
+                    <option value="B1-B2">B1-B2</option>
+                    <option value="B2">B2</option>
+                    <option value="B2-C1">B2-C1</option>
+                    <option value="C1">C1</option>
+                    <option value="C1-C2">C1-C2</option>
+                    <option value="C2">C2</option>
+                </select>
+
+                <button class="roboto-flex-mod" id="generate" onclick="generateText()">Generar</button>
+            </div>
+            <div id="loader"></div>
+            <div id="generatedText"></div>
+        </div>
+    </body>
+</html>

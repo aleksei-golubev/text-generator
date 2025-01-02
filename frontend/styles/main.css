@@ -1,0 +1,197 @@
+body {
+    margin: 0;
+    font-size: 1.2em;
+}
+.top-header {
+    background-color: #25274d;
+    height: 6em;
+}
+h1 {
+    width: 80%;
+    margin: auto;
+    padding: 0.4em;
+    color: #fff;
+    font-weight: 200;
+    font-size: 2.5em;
+}
+h2 {
+    margin-bottom: 0;
+    margin-right: 0.1em;
+    display: inline;
+}
+h3 {
+    margin-bottom: 0.4em;
+}
+.page-content {
+    width: 80%;
+    margin: auto;
+}
+.quick-request-form {
+    padding: 1em;
+    text-align: center;
+
+    input, button, select {
+        padding: 0.1em 0.5em;
+        font-size: inherit;
+    }
+}
+
+#loader {
+    height: 11em;
+    margin-top: 3em;
+    background-repeat: no-repeat;
+    background-position: center;
+    display: none;
+    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><linearGradient id="a11"><stop offset="0" stop-color="%2329648A" stop-opacity="0"></stop><stop offset="1" stop-color="%2329648A"></stop></linearGradient><circle fill="none" stroke="url(%23a11)" stroke-width="15" stroke-linecap="round" stroke-dasharray="0 44 0 44 0 44 0 44 0 360" cx="100" cy="100" r="70" transform-origin="center"><animateTransform type="rotate" attributeName="transform" calcMode="discrete" dur="2" values="360;324;288;252;216;180;144;108;72;36" repeatCount="indefinite"></animateTransform></circle></svg>');
+}
+
+#generatedText {
+    display: none;
+}
+
+.text-container {
+    padding-bottom: 1.5em;
+    .header {
+        background-color: #fff;
+        min-height: 4.4em;
+        margin-bottom: 0.6em;
+        margin-top: 1em;
+
+        .title {
+            margin-bottom: 0.3em
+        }
+        button {
+            padding: 0.1em 0.5em;
+            font-size: inherit;
+        }
+        .switch {
+            input {
+                display: none;
+            }
+            .on-off:before {
+                content: "Apagado";
+                cursor: pointer;
+                text-decoration: underline;
+                text-decoration-style: dashed;
+            }
+            input:checked+.on-off:before {
+                content: "Encendido";
+            }
+        }
+    }
+    .paragraph {
+        padding: 0.4em 0;
+        line-height: 1.5em;
+        .sentence {
+            display: inline;
+        }
+        .origin {
+            display: inline;
+        }
+    }
+    .addition {
+        display: flex;
+        flex-direction: row;
+        align-items: stretch;
+        gap: 5%;
+    }
+
+    .words {
+        width: 35%;
+        .list {
+            padding: 0.4em 0;
+            line-height: 1.5em;
+        }
+        .origin {
+            display: inline;
+        }
+    }
+
+    .questions {
+        width: 60%;
+        .question {
+            padding: 0.4em 0;
+            line-height: 1.5em;
+            label {
+                padding-left: 0.1em;
+            }
+        }
+        button {
+            padding: 0.1em 0.5em;
+            font-size: inherit;
+        }
+    }
+
+    .translation {
+        display: none;
+        color: #565876;
+    }
+}
+
+#testResultDialog {
+    width: 40%;
+    height: 17em;
+    text-align: center;
+    border-width: 0;
+    #testResult {
+        letter-spacing: 0.1em;
+        font-size: 4em;
+        margin: 1em;
+    }
+}
+
+.synth {
+    display: inline;
+    .svg-button {
+        vertical-align: bottom;
+    }
+}
+.svg-button {
+    height: 1.1em;
+    width: 1.1em;
+    display: inline-block;
+    background-repeat: no-repeat;
+    background-position: center;
+    cursor: pointer;
+}
+.speech-play-button {
+    background-image: url('data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20265.404%20265.404%22%3E%3Cg%3E%3Cpath%20style%3D%22fill%3A%23000002%3B%22%20d%3D%22M194.172%2C123.684l-78.081-51.122c-1.921-1.257-4.032-1.922-6.106-1.922%20c-5.521%2C0-9.686%2C4.496-9.686%2C10.458v103.207c0%2C5.962%2C4.164%2C10.458%2C9.685%2C10.458c2.075%2C0%2C4.187-0.665%2C6.106-1.923l78.082-51.129%20c3.251-2.129%2C5.117-5.415%2C5.116-9.014C199.289%2C129.098%2C197.424%2C125.814%2C194.172%2C123.684z%20M115.3%2C175.429V89.973l65.256%2C42.725%20L115.3%2C175.429z%22/%3E%3Cpath%20style%3D%22fill%3A%23000002%3B%22%20d%3D%22M132.702%2C0.001C59.53%2C0.001%2C0%2C59.53%2C0%2C132.702c0%2C73.172%2C59.53%2C132.702%2C132.702%2C132.702%20s132.702-59.53%2C132.702-132.702C265.404%2C59.53%2C205.875%2C0.001%2C132.702%2C0.001z%20M132.702%2C250.404%20C67.801%2C250.404%2C15%2C197.603%2C15%2C132.702C15%2C67.801%2C67.801%2C15.001%2C132.702%2C15.001s117.702%2C52.8%2C117.702%2C117.701%20C250.404%2C197.603%2C197.604%2C250.404%2C132.702%2C250.404z%22/%3E%3C/g%3E%3C/svg%3E');
+}
+
+.speech-stop-button {
+    background-image: url('data:image/svg+xml,%3Csvg%20viewBox%3D%220%200%20265.404%20265.404%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cpath%20d%3D%22M99.074%2C99.074h67.256v67.256H99.074V99.074z%22%20fill%3D%22%23000000%22/%3E%3Cpath%20fill-rule%3D%22evenodd%22%20clip-rule%3D%22evenodd%22%20d%3D%22M132.702%2C0.001C59.53%2C0.001%2C0%2C59.53%2C0%2C132.702c0%2C73.172%2C59.53%2C132.702%2C132.702%2C132.702%20s132.702-59.53%2C132.702-132.702C265.404%2C59.53%2C205.875%2C0.001%2C132.702%2C0.001z%20M132.702%2C250.404%20C67.801%2C250.404%2C15%2C197.603%2C15%2C132.702C15%2C67.801%2C67.801%2C15.001%2C132.702%2C15.001s117.702%2C52.8%2C117.702%2C117.701%20C250.404%2C197.603%2C197.604%2C250.404%2C132.702%2C250.404z%22%20fill%3D%22%23000000%22/%3E%3C/svg%3E');
+}
+
+.oswald-mod {
+    font-family: "Oswald", serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+}
+
+.roboto-flex-mod {
+  font-family: "Roboto Flex", serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-variation-settings:
+    "slnt" 0,
+    "wdth" 100,
+    "GRAD" 0,
+    "XOPQ" 96,
+    "XTRA" 468,
+    "YOPQ" 79,
+    "YTAS" 750,
+    "YTDE" -203,
+    "YTFI" 738,
+    "YTLC" 514,
+    "YTUC" 712;
+}
+
+.noselect {
+    -webkit-touch-callout: none; /* iOS Safari */
+      -webkit-user-select: none; /* Safari */
+       -khtml-user-select: none; /* Konqueror HTML */
+         -moz-user-select: none; /* Old versions of Firefox */
+          -ms-user-select: none; /* Internet Explorer/Edge */
+              user-select: none; /* Non-prefixed version, currently
+                                    supported by Chrome, Edge, Opera and Firefox */
+  }

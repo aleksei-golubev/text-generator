@@ -1,0 +1,14 @@
+{
+  "name": "text-generator",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "node ./backend.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "express": "^4.21.2",
+    "openai": "^4.77.0"
+  }
+}

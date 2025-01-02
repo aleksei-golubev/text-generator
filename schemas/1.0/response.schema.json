@@ -1,0 +1,138 @@
+{
+  "version": "1.0",
+  "responseSchema": {
+    "name": "text_with_questions",
+    "strict": true,
+    "schema": {
+      "type":"object",
+      "additionalProperties": false,
+      "properties": {
+        "level": {
+          "type": "string",
+          "description": "The language proficiency level or range of levels for the text (e.g., A1, A2, B1-B2, C1-C2)."
+        },
+        "text": {
+          "type": "array",
+          "description": "An array of paragraphs.",
+          "items": {
+            "type": "array",
+            "description": "An array of sentences with their translations.",
+            "items":  {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "origin": {
+                  "type": "string",
+                  "description": "A single sentence from the text."
+                },
+                "translation": {
+                  "type": "string",
+                  "description": "Translation for sentence from the text."
+                }
+              },
+              "required": ["origin", "translation"]
+            }
+          }
+        },
+        "title": {
+          "type": "object",
+          "description": "The title of the text and its translations.",
+          "additionalProperties": false,
+          "properties": {
+            "origin": {
+              "type": "string",
+              "description": "The title of the text in the default language."
+            },
+            "translation": {
+              "type": "string",
+              "description": "The translation of the title in the specified language."
+            }
+          },
+          "required": ["origin", "translation"]
+        },
+        "words": {
+          "type": "array",
+          "description": "An array of words from the text with translations.",
+          "items": {
+            "type": "object",
+            "description": "The word.",
+            "additionalProperties": false,
+            "properties": {
+              "origin": {
+                "type": "string",
+                "description": "The word in origin leanguage."
+              },
+              "translation": {
+                "type": "string",
+                "description": "The translation of the word in the specified language."
+              }
+            },
+            "required": ["origin", "translation"]
+          }
+        },
+        "questions": {
+          "type": "array",
+          "description": "An array of questions related to the text for comprehension testing.",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "id": {
+                "type": "integer",
+                "description": "Unique identifier for the question."
+              },
+              "question": {
+                "type": "string",
+                "description": "The question to be answered."
+              },
+              "options": {
+                "type": "array",
+                "description": "Array of possible answers for the question.",
+                "items": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "properties": {
+                    "id": {
+                      "type": "integer",
+                      "description": "Unique identifier for the answer option."
+                    },
+                    "answer": {
+                      "type": "string",
+                      "description": "The text of the answer option."
+                    }
+                  },
+                  "required": ["id", "answer"]
+                }
+              },
+              "correct": {
+                "type": "array",
+                "description": "Array of IDs representing the correct answer(s).",
+                "items": {
+                  "type": "integer"
+                }
+              }
+            },
+            "required": ["id","question", "options", "correct"]
+          }
+        },
+        "tags": {
+          "type": "array",
+          "description": "Array of tags for text.",
+          "items": {
+            "type":"string",
+            "description": "Tag or keyword for search text."
+          }
+        },
+        "properNouns": {
+          "type": "array",
+          "description": "Array of proper nouns.",
+          "items": {
+            "type":"string",
+            "description": "Proper noun from text."
+          }
+        }
+      },
+      "required": ["level", "text", "title", "words", "questions", "tags", "properNouns"]
+    }
+  }
+}
