@@ -1,19 +1,26 @@
 import express from 'express';
-import { OpenAI } from 'openai';
+import path from 'path';
+import { OpenAI } from 'openai'; 
 
-import { basicPrompt } from './backend/prompts.mjs';
-import { getMockedContent, loadSchema, saveResponse, loadOpenApiKey } from './backend/files.mjs';
+import { basicPrompt } from './admin/backend/prompts.mjs';
+import { getMockedContent, loadSchema, saveResponse, loadOpenApiKey } from './admin/backend/files.mjs';
+import { getDir } from './admin/backend/utils.mjs';
 
 const responseSchemaVersion = "1.0";
 const responseSchema = loadSchema(responseSchemaVersion);
+const __dirname = getDir(import.meta.url);
+const port = 3000;
 
 const app = express();
-app.use(express.static('frontend'));
-const port = 3000;
 
 const aiClient = new OpenAI({
   apiKey: loadOpenApiKey()
 });
+
+app.use(express.static(path.join(__dirname, 'admin/frontend')));
+app.get('/scripts/renderer.js', (req, res) => {
+  res.sendFile(path.join(__dirname, './admin/shared/renderer.js'));
+})
 
 app.get('/text_mock', (req, res) => {  
   res.send(getMockedContent(responseSchemaVersion));
