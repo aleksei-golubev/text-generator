@@ -15,14 +15,16 @@ export function generateIndex(context) {
 function getLink(text) {
     return {
         title: text.content.title.origin,
-        url: `${text.content.level}/${text.slug}-${text.id}.html` 
+        url: `${text.content.level}/${text.slug}-${text.id}.html`,
+        date: new Date(text.date)
     }
 }
 
 function textsList(list) {
     return `<ul>
         ${list.map(text => getLink(text))
-              .map(text => `<li><a href='${text.url}'>${text.title}</a></li>\n`)
+              .sort((a, b) => b.date - a.date)
+              .map(text => `<li class='text-item'><a href='${text.url}'>${text.title}</a> <span class='date'>(${formatDate(text.date)})</span></li>\n`)
               .join('')}
     </ul>`;
 }
@@ -37,4 +39,11 @@ function groupedTextsList(groupedTexts) {
         `;
     });
     return result;
+}
+
+function formatDate(dateObj) {
+    const date = dateObj.getDate() < 10 ? '0' + dateObj.getDate() : dateObj.getDate();
+    const month = dateObj.getMonth() + 1 < 10 ? '0' + (dateObj.getMonth() + 1) : dateObj.getMonth() + 1;
+    const year = dateObj.getFullYear();
+    return `${date}.${month}.${year}`;
 }
