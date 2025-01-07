@@ -1,5 +1,7 @@
 import fs from 'fs';
-import { generateFileName, generateId, generateSlug } from './utils.mjs';
+import { generateFileName, generateSlug } from './utils.mjs';
+import { generateId } from '../../shared/utils.mjs';
+import { fullContent } from '../../shared/templates/full-content.mjs';
 
 export function loadSchema(responseSchemaVersion) {
     const loadedSchema = JSON.parse(fs.readFileSync(`./schemas/${responseSchemaVersion}/response.schema.json`));
@@ -38,5 +40,5 @@ export function saveResponse(prompt, responseSchemaVersion, content, response) {
 export function getMockedContent(responseSchemaVersion) {
     const mockFile = `./storage/${responseSchemaVersion}/apawl_2024-12-29_16-44-44.json`;
     console.log(`Load mocked data: ${mockFile}`);
-    return JSON.parse(fs.readFileSync(mockFile)).content;
+    return fullContent(JSON.parse(fs.readFileSync(mockFile)).content);
 }

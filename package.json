@@ -2,13 +2,16 @@
   "name": "text-generator",
   "version": "1.0.0",
   "scripts": {
-    "start": "node ./admin.mjs"
+    "admin": "node ./admin.mjs",
+    "ssg": "node ./ssg.mjs",
+    "check": "node ./check.mjs"
   },
   "author": "",
   "license": "ISC",
   "description": "",
   "dependencies": {
     "express": "^4.21.2",
+    "handlebars": "^4.7.8",
     "openai": "^4.77.0"
   }
 }

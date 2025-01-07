@@ -1,3 +1,5 @@
 node_modules
 local
 openai-api-key
+
+generated-statics

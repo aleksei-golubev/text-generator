@@ -4,11 +4,12 @@ import { OpenAI } from 'openai';
 
 import { basicPrompt } from './admin/backend/prompts.mjs';
 import { getMockedContent, loadSchema, saveResponse, loadOpenApiKey } from './admin/backend/files.mjs';
-import { getDir } from './admin/backend/utils.mjs';
+import { getDir } from './shared/utils.mjs';
+import { fullContent } from './shared/templates/full-content.mjs';
 
+const __dirname = getDir(import.meta.url);
 const responseSchemaVersion = "1.0";
 const responseSchema = loadSchema(responseSchemaVersion);
-const __dirname = getDir(import.meta.url);
 const port = 3000;
 
 const app = express();
@@ -18,9 +19,19 @@ const aiClient = new OpenAI({
 });
 
 app.use(express.static(path.join(__dirname, 'admin/frontend')));
-app.get('/scripts/renderer.js', (req, res) => {
-  res.sendFile(path.join(__dirname, './admin/shared/renderer.js'));
-})
+
+app.get('/scripts/handlers.js', (req, res) => {
+  res.sendFile(path.join(__dirname, './shared/frontend/scripts/handlers.js'));
+});
+app.get('/scripts/utils.js', (req, res) => {
+  res.sendFile(path.join(__dirname, './shared/frontend/scripts/utils.js'));
+});
+app.get('/styles/main.css', (req, res) => {
+  res.sendFile(path.join(__dirname, './shared/frontend/styles/main.css'));
+});
+app.get('/favicon.svg', (req, res) => {
+  res.sendFile(path.join(__dirname, './shared/frontend/favicon.svg'));
+});
 
 app.get('/text_mock', (req, res) => {  
   res.send(getMockedContent(responseSchemaVersion));
@@ -62,10 +73,10 @@ app.get('/text', async (req, res) => {
 
   saveResponse(prompt, responseSchemaVersion, content, response);
   
-  res.send(content);
+  res.send(fullContent(content));
 });
 
 app.listen(port, () => {
-  console.log(`=== Simple text generator ===`);
+  console.log(`=== Simple text generator [Admin] ===`);
   console.log(`App listening on port ${port}`);
 });
