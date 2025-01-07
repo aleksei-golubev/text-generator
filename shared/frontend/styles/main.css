@@ -22,6 +22,20 @@ h2 {
 h3 {
     margin-bottom: 0.4em;
 }
+
+a:link {
+    color: #29648a;
+}
+a:hover {
+    color:#3c779d;
+}
+a:visited {
+    color:#25274d;
+}
+a:active {
+    color: #2e9cca;
+}
+
 .page-content {
     width: 80%;
     margin: auto;

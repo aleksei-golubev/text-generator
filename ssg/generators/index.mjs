@@ -4,7 +4,7 @@ import { getTemplate } from "../core/utils.mjs";
 
 export function generateIndex(context) {
     const replacements = {
-        'TEXTS_LIST': textsList(context.texts.map(text => getLink(text)))
+        'TEXTS_LIST': groupedTextsList(context.groupedTexts)
     }
 
     let fileContent = getTemplate('index', context.templateDir);
@@ -21,6 +21,20 @@ function getLink(text) {
 
 function textsList(list) {
     return `<ul>
-        ${list.map(text => `<li><a href='${text.url}'>${text.title}</a></li>\n`).join('')}
+        ${list.map(text => getLink(text))
+              .map(text => `<li><a href='${text.url}'>${text.title}</a></li>\n`)
+              .join('')}
     </ul>`;
+}
+
+function groupedTextsList(groupedTexts) {
+    let sortedGroups = [...groupedTexts.entries()].sort(([keyA], [keyB]) => keyA.localeCompare(keyB));
+    let result = '';
+    sortedGroups.forEach(([level, group]) => {
+        result += `
+            <h3 class='oswald-mod'>${level}</h3>
+            ${textsList(group)}
+        `;
+    });
+    return result;
 }
