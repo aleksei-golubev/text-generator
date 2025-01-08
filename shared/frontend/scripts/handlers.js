@@ -3,7 +3,9 @@ function setHandlers() {
         if (e.target.classList.contains('origin')) {
             toggleTranlsation(e.target.parentElement.querySelector('.translation'));
         }
-    })
+    });
+
+    setAlternativeTranslationLinks();
 }
 
 function toggleTranlsation(el) {
@@ -63,4 +65,20 @@ function stop() {
 
 function togglePlayStop() {
     [$('play').style.display, $('stop').style.display] = [$('stop').style.display, $('play').style.display];
+}
+
+function setAlternativeTranslationLinks() {
+    $('deepL').href += getEncodedOrigin();
+    $('yandex').href += getEncodedOrigin();
+    $('google').href += getEncodedOrigin();
+}
+
+function getEncodedOrigin() {
+    let origin = `${$qs('.header h2.origin').innerText}`;
+
+    $qsAll('.paragraph').forEach(paragraph => {
+        origin += `\n${[...paragraph.querySelectorAll('.sentence .origin')].map(sentence => sentence.innerText).join(' ')}`;
+    });
+
+    return encodeURIComponent(origin);
 }

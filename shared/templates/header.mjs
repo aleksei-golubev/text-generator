@@ -6,7 +6,7 @@ export function header(title, tags, level) {
                 </div>
                 <div class='subtitle'>
                     Etiquetas: <i>${tags.join('</i>, <i>')}</i></br>
-                    Nivel: ${level} | ${speechSynthButtons()} | ${translationSwitch()}
+                    Nivel: ${level} | ${speechSynthButtons()} | ${translationSwitch()} | ${alternativeTranslations()}
                 </div>
             </div>`;
 }
@@ -25,4 +25,10 @@ function translationSwitch() {
                 <input type="checkbox" id="translationSwitch" />
                 <span class="on-off"></span>
             </label>`;
+}
+
+function alternativeTranslations() {
+    return `Alternativa: <a href="https://www.deepl.com/es/translator#es/ru/" id='deepL' target='_blank'>DeepL</a>,
+            <a href="https://translate.yandex.ru/?source_lang=es&target_lang=ru&text=" id='yandex' target='_blank'>Yandex</a>,
+            <a href="https://translate.google.com/?hl=es&sl=es&tl=ru&text=" id='google' target='_blank'>Google</a>`;
 }

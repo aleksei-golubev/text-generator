@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
 function createAppContext() {
     window.app = {
         synth: window.speechSynthesis,
-        source: '/text_mock'
+        source: '/text'
     };
 }
 
