@@ -60,6 +60,7 @@ export function dialogPrompt(params) {
       - sentences and paragraphs SHOULD NOT be empty.
   Check that the dialog includes at least 15 sentences.
   Check that each paragraph includes only one speech.
+  Check tha dialog ends with only farewell speech per person.
   Make a list of 20-25 words used in the dialog with translation into Russian according to the following requirements:
       - 5-7 verbs, 5-7 adjectives, 5-7 substantives, 5-7 adverbs;
       - choose the most hard words;
@@ -75,7 +76,7 @@ export function dialogPrompt(params) {
   Check that correct options for answers are really correct.
   Add 3-5 tags to the result.
   Check that in the generated data there are no words in other languages than Spanish except proper nouns.
-  Extract all proper nouns from the generated dialog. Proper nouns include names of specific people (except names of characters of generated dialog), places (e.g., regions like 'Caribe'), organizations, titles, or other named entities. Return the results as an array without duplicates.
+  Extract all proper nouns from the generated dialog. Proper nouns include names of specific people, places (e.g., regions like 'Caribe'), organizations, titles, or other named entities. Return the results as an array without duplicates. Exclude names of characters of generated dialog.
   Perform an additional check to ensure that:
       - no words or phrases from languages other than Spanish (except translations into Russian) are included in the dialog, questions, or word lists;
       - Spanish words are used in correct grammatical forms: times, gender (masculine/femenin), sentences structure, etc.;

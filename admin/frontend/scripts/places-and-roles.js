@@ -10,7 +10,7 @@ const places = {
       "client": "Cliente",
       "secretary": "Secretario",
       "receptionist": "Recepcionista",
-      "human_resources": "Recursos Humanos",
+      "human resources": "Recursos Humanos",
       "accountant": "Contador",
       "intern": "Becario"
     }
@@ -19,12 +19,12 @@ const places = {
     name: "Parque",
     roles: {
       "pedestrian": "Peatón",
-      "dog_owner": "Dueño de perro",
+      "dog owner": "Dueño de perro",
       "cyclist": "Ciclista",
       "runner": "Corredor",
-      "mother_with_pram": "Madre con carrito",
-      "elderly_person": "Anciano",
-      "young_runner": "Joven corredor",
+      "mother with pram": "Madre con carrito",
+      "elderly person": "Anciano",
+      "young runner": "Joven corredor",
       "tourist": "Turista",
       "vendor": "Vendedor",
       "gardener": "Jardinero"
@@ -35,7 +35,7 @@ const places = {
     roles: {
       "host": "Anfitrión",
       "guest": "Invitado",
-      "family_member": "Miembro de la familia",
+      "family member": "Miembro de la familia",
       "neighbor": "Vecino",
       "repairman": "Reparador",
       "cleaner": "Limpiador",
@@ -87,7 +87,7 @@ const places = {
       "historian": "Historiador",
       "scientist": "Científico",
       "visitor": "Visitante",
-      "library_employee": "Empleado de biblioteca"
+      "library employee": "Empleado de biblioteca"
     }
   },
   "store": {
@@ -97,12 +97,12 @@ const places = {
       "customer": "Cliente",
       "cashier": "Cajero",
       "manager": "Gerente",
-      "store_assistant": "Asistente de tienda",
-      "stock_clerk": "Almacenista",
-      "security_guard": "Guardia de seguridad",
+      "store assistant": "Asistente de tienda",
+      "stock clerk": "Almacenista",
+      "security guard": "Guardia de seguridad",
       "cleaner": "Limpiador",
-      "delivery_person": "Repartidor",
-      "store_owner": "Propietario de tienda"
+      "delivery person": "Repartidor",
+      "store owner": "Propietario de tienda"
     }
   },
   "street": {
@@ -113,11 +113,11 @@ const places = {
       "postman": "Cartero",
       "policeman": "Policía",
       "cyclist": "Ciclista",
-      "construction_worker": "Trabajador de construcción",
+      "construction worker": "Trabajador de construcción",
       "musician": "Músico",
       "tourist": "Turista",
       "vendor": "Vendedor",
-      "delivery_person": "Repartidor"
+      "delivery person": "Repartidor"
     }
   },
   "square": {
@@ -135,17 +135,17 @@ const places = {
       "runner": "Corredor"
     }
   },
-  "shopping_mall": {
+  "shopping mall": {
     name: "Centro Comercial",
     roles: {
       "salesperson": "Dependiente",
       "customer": "Cliente",
       "consultant": "Consultor",
-      "security_guard": "Guardia de seguridad",
+      "security guard": "Guardia de seguridad",
       "cashier": "Cajero",
       "manager": "Gerente",
       "cleaner": "Limpiador",
-      "maintenance_worker": "Trabajador de mantenimiento",
+      "maintenance worker": "Trabajador de mantenimiento",
       "child": "Niño",
       "tourist": "Turista"
     }
@@ -153,16 +153,16 @@ const places = {
   "cinema": {
     name: "Cine",
     roles: {
-      "ticket_seller": "Vendedor de entradas",
+      "ticket seller": "Vendedor de entradas",
       "viewer": "Espectador",
       "filmmaker": "Cineasta",
       "producer": "Productor",
       "director": "Director",
       "actor": "Actor",
-      "sound_engineer": "Ingeniero de audio",
+      "sound engineer": "Ingeniero de audio",
       "stagehand": "Ayudante de escena",
-      "lighting_technician": "Iluminador",
-      "security_guard": "Guardia de seguridad"
+      "lighting technician": "Iluminador",
+      "security guard": "Guardia de seguridad"
     }
   },
   "gym": {
@@ -173,7 +173,7 @@ const places = {
       "receptionist": "Recepcionista",
       "cleaner": "Limpiador",
       "manager": "Gerente",
-      "personal_trainer": "Entrenador personal",
+      "personal trainer": "Entrenador personal",
       "customer": "Cliente",
       "therapist": "Terapeuta",
       "physiotherapist": "Fisioterapeuta",
@@ -231,13 +231,13 @@ const places = {
       "pilot": "Piloto",
       "stewardess": "Azafata",
       "passenger": "Pasajero",
-      "security_guard": "Guardia de seguridad",
-      "ticket_agent": "Agente de boletos",
-      "ground_staff": "Personal de tierra",
-      "baggage_handler": "Manipulador de equipaje",
-      "customs_officer": "Oficial de aduanas",
-      "airport_manager": "Gerente del aeropuerto",
-      "shop_assistant": "Asistente de tienda"
+      "security guard": "Guardia de seguridad",
+      "ticket agent": "Agente de boletos",
+      "ground staff": "Personal de tierra",
+      "baggage handler": "Manipulador de equipaje",
+      "customs officer": "Oficial de aduanas",
+      "airport manager": "Gerente del aeropuerto",
+      "shop assistant": "Asistente de tienda"
     }
   },
   "university": {
@@ -245,7 +245,7 @@ const places = {
     roles: {
       "professor": "Profesor",
       "student": "Estudiante",
-      "teaching_assistant": "Asistente de enseñanza",
+      "teaching assistant": "Asistente de enseñanza",
       "administrator": "Administrador",
       "researcher": "Investigador",
       "librarian": "Bibliotecario",
@@ -263,11 +263,11 @@ const places = {
       "defendant": "Demandado",
       "prosecutor": "Fiscal",
       "witness": "Testigo",
-      "court_clerk": "Secretario del tribunal",
+      "court clerk": "Secretario del tribunal",
       "bailiff": "Alguacil",
       "juror": "Juradista",
-      "court_reporter": "Estenógrafo",
-      "defense_attorney": "Abogado defensor"
+      "court reporter": "Estenógrafo",
+      "defense attorney": "Abogado defensor"
     }
   },
   "stadium": {
@@ -277,7 +277,7 @@ const places = {
       "coach": "Entrenador",
       "referee": "Árbitro",
       "spectator": "Espectador",
-      "security_guard": "Guardia de seguridad",
+      "security guard": "Guardia de seguridad",
       "commentator": "Comentarista",
       "photographer": "Fotógrafo",
       "vendor": "Vendedor",
@@ -292,10 +292,10 @@ const places = {
       "lifeguard": "Socorrista",
       "tourist": "Turista",
       "vendor": "Vendedor",
-      "beach_cleaner": "Limpiador de playa",
+      "beach cleaner": "Limpiador de playa",
       "surfer": "Surfista",
       "sunbather": "Tomador de sol",
-      "dog_owner": "Dueño de perro",
+      "dog owner": "Dueño de perro",
       "fisherman": "Pescador",
       "child": "Niño"
     }
@@ -309,7 +309,7 @@ const places = {
       "archaeologist": "Arqueólogo",
       "artist": "Artista",
       "historian": "Historiador",
-      "security_guard": "Guardia de seguridad",
+      "security guard": "Guardia de seguridad",
       "researcher": "Investigador",
       "student": "Estudiante",
       "collector": "Coleccionista"
@@ -320,7 +320,7 @@ const places = {
     roles: {
       "farmer": "Granjero",
       "worker": "Trabajador",
-      "animal_keeper": "Cuidador de animales",
+      "animal keeper": "Cuidador de animales",
       "vendor": "Vendedor",
       "tourist": "Turista",
       "child": "Niño",
@@ -330,7 +330,7 @@ const places = {
       "housekeeper": "Camarera"
     }
   },
-  "construction_site": {
+  "construction site": {
     name: "Sitio de construcción",
     roles: {
       "builder": "Constructor",
@@ -338,9 +338,9 @@ const places = {
       "engineer": "Ingeniero",
       "foreman": "Capataz",
       "worker": "Trabajador",
-      "security_guard": "Guardia de seguridad",
-      "construction_manager": "Gerente de construcción",
-      "truck_driver": "Conductor de camión",
+      "security guard": "Guardia de seguridad",
+      "construction manager": "Gerente de construcción",
+      "truck driver": "Conductor de camión",
       "laborer": "Obrero",
       "electrician": "Electricista"
     }
@@ -355,32 +355,32 @@ const places = {
       "cleaner": "Limpiador",
       "photographer": "Fotógrafo",
       "guide": "Guía",
-      "animal_trainer": "Entrenador de animales",
+      "animal trainer": "Entrenador de animales",
       "scientist": "Científico",
       "vendor": "Vendedor"
     }
   },
-  "airport_terminal": {
+  "airport terminal": {
     name: "Terminal de aeropuerto",
     roles: {
       "passenger": "Pasajero",
-      "ticket_agent": "Agente de boletos",
-      "security_guard": "Guardia de seguridad",
-      "ground_staff": "Personal de tierra",
-      "baggage_handler": "Manipulador de equipaje",
-      "shop_assistant": "Asistente de tienda",
+      "ticket agent": "Agente de boletos",
+      "security guard": "Guardia de seguridad",
+      "ground staff": "Personal de tierra",
+      "baggage handler": "Manipulador de equipaje",
+      "shop assistant": "Asistente de tienda",
       "tourist": "Turista",
-      "customs_officer": "Oficial de aduanas",
-      "airport_manager": "Gerente del aeropuerto",
+      "customs officer": "Oficial de aduanas",
+      "airport manager": "Gerente del aeropuerto",
       "guide": "Guía"
     }
   },
-  "night_club": {
+  "night club": {
     name: "Club nocturno",
     roles: {
       "dj": "DJ",
       "bartender": "Barman",
-      "security_guard": "Guardia de seguridad",
+      "security guard": "Guardia de seguridad",
       "customer": "Cliente",
       "dancer": "Bailarín",
       "waiter": "Mesero",
@@ -390,17 +390,17 @@ const places = {
       "musician": "Músico"
     }
   },
-  "amusement_park": {
+  "amusement park": {
     name: "Parque de diversiones",
     roles: {
       "visitor": "Visitante",
-      "ride_operator": "Operador de atracciones",
-      "security_guard": "Guardia de seguridad",
+      "ride operator": "Operador de atracciones",
+      "security guard": "Guardia de seguridad",
       "cleaner": "Limpiador",
       "vendor": "Vendedor",
       "tourist": "Turista",
       "animator": "Animador",
-      "show_performer": "Intérprete",
+      "show performer": "Intérprete",
       "manager": "Gerente",
       "mechanic": "Mecánico"
     }
@@ -411,13 +411,13 @@ const places = {
       "cashier": "Cajero",
       "customer": "Cliente",
       "manager": "Gerente",
-      "stock_clerk": "Almacenista",
-      "security_guard": "Guardia de seguridad",
+      "stock clerk": "Almacenista",
+      "security guard": "Guardia de seguridad",
       "cleaner": "Limpiador",
       "vendor": "Vendedor",
-      "delivery_person": "Repartidor",
-      "meat_cutter": "Cortador de carne",
-      "bakery_assistant": "Asistente de panadería"
+      "delivery person": "Repartidor",
+      "meat cutter": "Cortador de carne",
+      "bakery assistant": "Asistente de panadería"
     }
   },
   "theater": {
@@ -426,27 +426,27 @@ const places = {
       "actor": "Actor",
       "director": "Director",
       "spectator": "Espectador",
-      "stage_manager": "Gerente de escenario",
-      "lighting_technician": "Iluminador",
-      "sound_technician": "Técnico de sonido",
+      "stage manager": "Gerente de escenario",
+      "lighting technician": "Iluminador",
+      "sound technician": "Técnico de sonido",
       "usher": "Portero",
-      "costume_designer": "Diseñador de vestuario",
-      "makeup_artist": "Maquillador",
-      "ticket_seller": "Vendedor de entradas"
+      "costume designer": "Diseñador de vestuario",
+      "makeup artist": "Maquillador",
+      "ticket seller": "Vendedor de entradas"
     }
   },
-  "ski_resort": {
+  "ski resort": {
     name: "Estación de esquí",
     roles: {
       "skier": "Esquiador",
       "snowboarder": "Snowboarder",
       "instructor": "Instructor",
       "visitor": "Visitante",
-      "lift_operator": "Operador de telesquí",
-      "ski_technician": "Técnico de esquí",
+      "lift operator": "Operador de telesquí",
+      "ski technician": "Técnico de esquí",
       "cleaner": "Limpiador",
-      "security_guard": "Guardia de seguridad",
-      "shop_assistant": "Asistente de tienda",
+      "security guard": "Guardia de seguridad",
+      "shop assistant": "Asistente de tienda",
       "manager": "Gerente"
     }
   }
