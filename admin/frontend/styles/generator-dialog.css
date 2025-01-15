@@ -1,0 +1,50 @@
+.quick-request-form {
+    * {
+        box-sizing: border-box;
+    }
+
+    .form-container {
+        display: flex;
+        justify-content: space-between;
+        gap: 20px;
+        flex-wrap: wrap;
+    }
+
+    .character-fieldset, .form-col {
+        width: 48%;
+        vertical-align: top;
+        margin-bottom: 20px;
+    }
+    .form-col {
+        text-align: left;
+        select {
+            width: 50%;
+        }
+    }
+    label {
+        display: block;
+        width: 100%;
+        margin-bottom: 5px;
+        text-align: left;
+    }
+
+    input[type="text"],
+    select,
+    textarea {
+        width: 100%;
+        font-size: inherit;
+    }
+    legend {
+        padding: 0 0.3em;
+    }
+    textarea {
+        resize: vertical;
+    }
+
+    .show-hide-form {
+        text-align: right;
+        text-decoration: underline;
+        text-decoration-style: dashed;
+        cursor: pointer;
+    }
+}

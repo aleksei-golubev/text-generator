@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link href="/styles/main.css" rel="stylesheet" type="text/css" />
+    <link href="/styles/generator.css" rel="stylesheet" type="text/css" />
+    <link href="/styles/generator-dialog.css" rel="stylesheet" type="text/css" />
+    <link href="/favicon.svg" rel="icon" sizes="any" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Roboto+Flex:opsz,wght@8..144,100..1000&display=swap"
+        rel="stylesheet" />
+    <script src="/scripts/utils.js"></script>
+    <script src="/scripts/handlers.js"></script>
+    <script src="/scripts/places-and-roles.js"></script>
+    <script src="/scripts/generator-dialog.js"></script>
+    <title>Textos generados</title>
+</head>
+
+<body class="roboto-flex-mod">
+    <div class="top-header">
+        <h1 class="oswald-mod">Textos generados</h1>
+    </div>
+    <div class="page-content">
+        <div class="quick-request-form">
+            <div id="dialogGeneratorForm">
+                <label for="place">Lugar de la acción:</label>
+                <select class="roboto-flex-mod" id="place" name="place">
+                    <!-- Los lugares para el diálogo se insertarán desde el objeto -->
+                </select>
+                <br><br>
+
+                <label for="context">Contexto:</label>
+                <textarea class="roboto-flex-mod" id="context" name="context" rows="4" cols="50"
+                    placeholder="Describe la situación en la que ocurre el diálogo..."></textarea>
+                <br><br>
+
+                <div class="form-container">
+                    <fieldset class="character-fieldset">
+                        <legend>Personaje 1:</legend>
+
+                        <label for="mood1">Estado de ánimo:</label>
+                        <select class="roboto-flex-mod" id="mood1" name="mood1">
+                            <!-- Los estados de ánimo para el personaje 1 se insertarán dinámicamente -->
+                        </select>
+                        <br><br>
+
+                        <label for="role1">Papel:</label>
+                        <select class="roboto-flex-mod" id="role1" name="role1">
+                            <!-- Los roles para el personaje 1 se insertarán dinámicamente -->
+                        </select>
+                        <br><br>
+
+                        <label for="gender1">Sexo:</label>
+                        <select class="roboto-flex-mod" id="gender1" name="gender1">
+                            <option value="masculino">Masculino</option>
+                            <option value="femenino">Femenino</option>
+                        </select>
+                        <br><br>
+
+                        <label for="description1">Descripción breve:</label>
+                        <input class="roboto-flex-mod" type="text" id="description1" name="description1"
+                            placeholder="Describe al personaje 1">
+                    </fieldset>
+
+                    <fieldset class="character-fieldset">
+                        <legend>Personaje 2:</legend>
+
+                        <label for="mood2">Estado de ánimo:</label>
+                        <select class="roboto-flex-mod" id="mood2" name="mood2">
+                            <!-- Los estados de ánimo para el personaje 2 se insertarán dinámicamente -->
+                        </select>
+                        <br><br>
+
+                        <label for="role2">Papel:</label>
+                        <select class="roboto-flex-mod" id="role2" name="role2">
+                            <!-- Los roles para el personaje 2 se insertarán dinámicamente -->
+                        </select>
+                        <br><br>
+
+                        <label for="gender2">Sexo:</label>
+                        <select class="roboto-flex-mod" id="gender2" name="gender2">
+                            <option value="masculino">Masculino</option>
+                            <option value="femenino">Femenino</option>
+                        </select>
+                        <br><br>
+
+                        <label for="description2">Descripción breve:</label>
+                        <input class="roboto-flex-mod" type="text" id="description2" name="description2"
+                            placeholder="Describe al personaje 2">
+                    </fieldset>
+                </div>
+                <div class="form-container">
+                    <div class="form-col">
+                        Nivel: <select class="roboto-flex-mod" id="level">
+                            <option value="A1">A1</option>
+                            <option value="A1-A2">A1-A2</option>
+                            <option value="A2">A2</option>
+                            <option value="A2-B1">A2-B1</option>
+                            <option value="B1">B1</option>
+                            <option value="B1-B2">B1-B2</option>
+                            <option value="B2">B2</option>
+                            <option value="B2-C1">B2-C1</option>
+                            <option value="C1">C1</option>
+                            <option value="C1-C2">C1-C2</option>
+                            <option value="C2">C2</option>
+                        </select>
+                    </div>
+                    <div class="form-col">
+                        <button class="roboto-flex-mod" onclick="generateDialog()" id="generate">Generar diálogo</button>
+                    </div>
+                </div>
+            </div>
+            <div class="show-hide-form">
+                <span id="showHide" onclick="showHideForm()">Hide form</span>
+            </div>
+        </div>
+        <div id="loader"></div>
+        <div id="generatedText"></div>
+    </div>
+    <script>
+        setPlaces();
+        // Llamar a las funciones para inicializar los selectores
+        $('place').addEventListener('change', () => {
+            updateRoles();
+        });
+        updateRoles();
+        updateMoods();
+    </script>
+</body>
+
+</html>

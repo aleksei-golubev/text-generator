@@ -14,12 +14,15 @@ const storageDir =  path.join(__dirname, `storage/${responseSchemaVersion}`);
 const outputDir = path.join(__dirname, 'generated-statics');
 const sharedDir = path.join(__dirname, 'shared');
 
+const textsDir = path.join(storageDir, 'texts');
+const dialogsDir = path.join(storageDir, 'dialogs');
+
 if (fs.existsSync(outputDir)) {
     fs.rmSync(outputDir, {recursive: true, force: true});
 }
 fs.mkdirSync(outputDir);
 
-const texts = loadTexts(storageDir);
+const texts = loadTexts(textsDir, dialogsDir);
 
 const context = {
     texts: texts,

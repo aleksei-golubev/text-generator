@@ -22,7 +22,7 @@ function generateGroup(texts, outputDir, textTemplate) {
 function generateText(text, outputDir, textTemplate) {
     let fileContent = textTemplate;
     const replacements = {
-        'TEXT': fullContent(text.content)
+        'TEXT': fullContent(text.content, {speech: text.type !== 'dialog'})
     }
     Object.keys(replacements).forEach(key => fileContent = fileContent.replace(`<!--- ${key} --->`, replacements[key]));
     fs.writeFileSync(`${outputDir}/${text.slug}-${text.id}.html`, fileContent);

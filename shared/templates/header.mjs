@@ -1,4 +1,4 @@
-export function header(title, tags, level) {
+export function header(title, tags, level, params = {speech: true}) {
     return `<div class='header'>
                 <div class='title oswald-mod'>
                     <h2 class='origin'>${title.origin}</h2>
@@ -6,7 +6,7 @@ export function header(title, tags, level) {
                 </div>
                 <div class='subtitle'>
                     Etiquetas: <i>${tags.join('</i>, <i>')}</i></br>
-                    Nivel: ${level} | ${speechSynthButtons()} | ${translationSwitch()} | ${alternativeTranslations()}
+                    Nivel: ${level} ${params.speech ? `| ${speechSynthButtons()}` : ''} | ${translationSwitch()} | ${alternativeTranslations()}
                 </div>
             </div>`;
 }

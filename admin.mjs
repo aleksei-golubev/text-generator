@@ -2,10 +2,11 @@ import express from 'express';
 import path from 'path';
 import { OpenAI } from 'openai'; 
 
-import { basicPrompt } from './admin/backend/prompts.mjs';
-import { getMockedContent, loadSchema, saveResponse, loadOpenApiKey } from './admin/backend/files.mjs';
+import { basicPrompt, dialogPrompt } from './admin/backend/prompts.mjs';
+import { getMockedContent, getMockedDialogContent, loadSchema, saveResponse, loadOpenApiKey } from './admin/backend/files.mjs';
 import { getDir } from './shared/utils.mjs';
 import { fullContent } from './shared/templates/full-content.mjs';
+import { completion } from './admin/backend/completion.mjs';
 
 const __dirname = getDir(import.meta.url);
 const responseSchemaVersion = "1.0";
@@ -13,6 +14,7 @@ const responseSchema = loadSchema(responseSchemaVersion);
 const port = 3000;
 
 const app = express();
+app.use(express.json());
 
 const aiClient = new OpenAI({
   apiKey: loadOpenApiKey()
@@ -45,35 +47,30 @@ app.get('/text', async (req, res) => {
 
   let prompt = basicPrompt(topic, level);
 
-  const response = await aiClient.chat.completions.create({
-    model: "gpt-4o-mini",
-    messages: [
-      {
-        "role": "system",
-        "content": [
-          {
-            "type": "text",
-            "text": prompt
-          }
-        ]
-      }
-    ],
-    response_format: {
-      "type": "json_schema",
-      "json_schema": responseSchema
-    },
-    temperature: 1,
-    max_completion_tokens: 2048,
-    top_p: 1,
-    frequency_penalty: 0,
-    presence_penalty: 0
-  });
-
+  const response = await completion(aiClient, prompt, responseSchema);
   const content = JSON.parse(response.choices[response.choices.length-1].message.content);
 
-  saveResponse(prompt, responseSchemaVersion, content, response);
+  saveResponse('text', prompt, responseSchemaVersion, content, response);
   
   res.send(fullContent(content));
+});
+
+app.post('/dialog', async (req, res) => {
+  const params = req.body;  
+  console.log(`Generate dialog: "${params.place}", ${params.level}`);
+
+  let prompt = dialogPrompt(params);
+
+  const response = await completion(aiClient, prompt, responseSchema);
+  const content = JSON.parse(response.choices[response.choices.length-1].message.content);
+
+  saveResponse('dialog', prompt, responseSchemaVersion, content, response);
+  
+  res.send(fullContent(content, {speech: false}));
+});
+
+app.post('/dialog_mock', (req, res) => {  
+  res.send(getMockedDialogContent(responseSchemaVersion));
 });
 
 app.listen(port, () => {

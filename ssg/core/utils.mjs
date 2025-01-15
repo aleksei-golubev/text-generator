@@ -5,16 +5,20 @@ export function getTemplate(name, templateDir) {
     return fs.readFileSync(path.join(templateDir, `${name}.html`)).toString();
 }
 
-export function loadTexts(storageDir) {
-    return getFiles(storageDir).map(fileName => JSON.parse(loadText(storageDir, fileName)));
+export function loadTexts(...dirs) {
+    let [textsDir, dialogsDir] = dirs;
+    return [
+        ...getFiles(textsDir).map(fileName => JSON.parse(loadText(textsDir, fileName))),
+        ...getFiles(dialogsDir).map(fileName => JSON.parse(loadText(dialogsDir, fileName))),
+    ];
 }
 
-function loadText(storageDir, fileName) {
-    return fs.readFileSync(path.join(storageDir, fileName));
+function loadText(dir, fileName) {
+    return fs.readFileSync(path.join(dir, fileName));
 }
 
-function getFiles(storageDir) {
-    return fs.readdirSync(storageDir);
+function getFiles(dir) {
+    return fs.readdirSync(dir);
 }
 
 export function copyFiles(from, to, files) {

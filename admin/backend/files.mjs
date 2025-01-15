@@ -17,10 +17,12 @@ export function loadOpenApiKey() {
     return fs.readFileSync('./openai-api-key');
 }
 
-export function saveResponse(prompt, responseSchemaVersion, content, response) {
+export function saveResponse(type, prompt, responseSchemaVersion, content, response) {
     let id = generateId();
     let fileName = generateFileName(id);
+
     const fileContent = {
+        type: type,
         responseSchemaVersion: responseSchemaVersion,
         date: (new Date()).toJSON(),
         fileName: fileName,
@@ -32,13 +34,24 @@ export function saveResponse(prompt, responseSchemaVersion, content, response) {
         usage: response.usage
     };
 
-    fileName =`./storage/${responseSchemaVersion}/${fileName}.json`;
+    let subDir = {
+        'text': 'texts',
+        'dialog': 'dialogs'
+    }[type];
+
+    fileName =`./storage/${responseSchemaVersion}/${subDir}/${fileName}.json`;
     console.log(`Save to file: ${fileName}`);
     fs.writeFileSync(fileName, JSON.stringify(fileContent));
 }
 
 export function getMockedContent(responseSchemaVersion) {
-    const mockFile = `./storage/${responseSchemaVersion}/apawl_2024-12-29_16-44-44.json`;
+    const mockFile = `./storage/${responseSchemaVersion}/texts/apawl_2024-12-29_16-44-44.json`;
     console.log(`Load mocked data: ${mockFile}`);
     return fullContent(JSON.parse(fs.readFileSync(mockFile)).content);
+}
+
+export function getMockedDialogContent(responseSchemaVersion) {
+    const mockFile = `./storage/${responseSchemaVersion}/dialogs/wr3sy_2025-1-15_1-37-30.json`;
+    console.log(`Load mocked data: ${mockFile}`);
+    return fullContent(JSON.parse(fs.readFileSync(mockFile)).content, {speech: false});
 }
