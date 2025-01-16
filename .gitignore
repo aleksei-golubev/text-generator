@@ -1,5 +1,7 @@
 node_modules
 local
+
 openai-api-key
+ftp-credentials.json
 
 generated-statics
