@@ -1,3 +1,5 @@
+import path from 'path';
+
 export function generateFileName(id) {
     const date = new Date();
     return id + `_${date.getFullYear()}-${date.getMonth()+1}-${date.getDate()}_${date.getHours()}-${date.getMinutes()}-${date.getSeconds()}`;
@@ -12,3 +14,11 @@ export function generateSlug(sentence) {
         .trim() // Remove leading and trailing spaces
         .replace(/\s+/g, "-"); // Replace spaces with hyphens
 }
+
+export function overrideGetFromSharedDir(workingDir, app, files) {
+    Object.keys(files).forEach((file) => {
+      app.get(file, (req, res) => {
+        res.sendFile(path.join(workingDir, files[file]));
+      })
+    })
+  }

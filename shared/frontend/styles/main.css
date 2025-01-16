@@ -41,6 +41,14 @@ a:active {
     margin: auto;
 }
 
+.top-menu {
+    .navigation {
+        width: 80%;
+        margin: auto;
+        padding: 0.4em;
+    }
+}
+
 .text-container {
     padding-bottom: 1.5em;
     .header {
