@@ -1,6 +1,7 @@
 # Text Generator
 
 This repository contains the code for an application that leverages the OpenAI API to generate texts in Spanish, along with translations into Russian, questions, and a list of words. It is designed as an experimental platform for text generation and management.
+Some functionality (slug generator and FTP uploader) is generated with ChatGPT within experimental pair programming mode.
 
 ## Features
 
@@ -22,7 +23,7 @@ The application provides the following features:
 
 1. Clone the repository:
    ```bash
-   git clone <repository_url>
+   git clone git@github.com:aleksei-golubev/text-generator.git
    ```
 
 2. Navigate to the project directory:
@@ -57,7 +58,7 @@ Before running the application, set up the following configuration files in the 
    ```
    *Note: Passwords should be base64-encoded for added security.*
 
-## Directory Structure
+## Structure
 
 The key directories and files in the project are:
 
