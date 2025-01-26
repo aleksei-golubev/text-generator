@@ -1,6 +1,7 @@
 import fs from 'fs';
 
 import { getTemplate } from "../core/utils.mjs";
+import { type } from 'os';
 
 export function generateIndex(context) {
     const replacements = {
@@ -14,9 +15,17 @@ export function generateIndex(context) {
 
 function getLink(text) {
     return {
+        type: text.type,
         title: text.content.title.origin,
         url: `${text.content.level}/${text.slug}-${text.id}.html`,
         date: new Date(text.date)
+    }
+}
+
+function typeTranslate(type) {
+    switch (type) {
+        case 'text': return 'Un text';
+        case 'dialog': return 'Un diálogo';
     }
 }
 
@@ -24,7 +33,7 @@ function textsList(list) {
     return `<ul>
         ${list.map(text => getLink(text))
               .sort((a, b) => b.date - a.date)
-              .map(text => `<li class='text-item'><a href='${text.url}'>${text.title}</a> <span class='date'>(${formatDate(text.date)})</span></li>\n`)
+              .map(text => `<li class='text-item'><span class='icon ${text.type}' title='${typeTranslate(text.type)}'></span><a href='${text.url}'>${text.title}</a> <span class='date'>(${formatDate(text.date)})</span></li>\n`)
               .join('')}
     </ul>`;
 }
