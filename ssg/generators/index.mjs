@@ -1,7 +1,6 @@
 import fs from 'fs';
 
 import { getTemplate } from "../core/utils.mjs";
-import { type } from 'os';
 
 export function generateIndex(context) {
     const replacements = {
