@@ -116,8 +116,6 @@ Contributions are welcome! Please follow these steps to contribute:
 
 This project is licensed under the [ISC License](LICENSE).
 
-COPYLEFT 2025
-
 ---
 
 For any questions or support, bugs, please open an issue.
