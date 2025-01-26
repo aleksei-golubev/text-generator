@@ -5,3 +5,5 @@ openai-api-key
 ftp-credentials.json
 
 generated-statics
+
+*.log
