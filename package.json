@@ -7,7 +7,7 @@
     "check": "node ./check.mjs",
     "upload": "node ./upload.mjs"
   },
-  "author": "",
+  "author": "Aleksei Golubev",
   "license": "ISC",
   "description": "",
   "dependencies": {
