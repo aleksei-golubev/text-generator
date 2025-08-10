@@ -32,24 +32,33 @@ overrideGetFromSharedDir(__dirname, app, {
   '/favicon.svg': './shared/frontend/favicon.svg'
 })
 
-// app.get('/text', async (req, res) => {
-//   const topic = req.query.topic;
-//   const level = req.query.level;
+/* 
 
-//   console.log(`Generate: "${topic}", ${level}`);
+Non working example with GPT-5 below.
 
-//   let prompt = basicPrompt(topic, level);
+app.get('/text', async (req, res) => {
+  const topic = req.query.topic;
+  const level = req.query.level;
 
-//   const response = await completion('gpt-5', aiClient, prompt, responseSchema2);
+  console.log(`Generate: "${topic}", ${level}`);
 
-//   saveRawResponse(prompt, response, "2.0");
+  let prompt = basicPrompt(topic, level);
 
-//   const content = JSON.parse(response.choices[response.choices.length - 1].message.content);
+  const response = await completion('gpt-5', aiClient, prompt, responseSchema2);
 
-//   saveResponse('text', prompt, "2.0", content, response);
+  saveRawResponse(prompt, response, "2.0");
 
-//   res.send(fullContent(content));
-// });
+  // Possibly response format is changed.
+  const content = JSON.parse(response.choices[response.choices.length - 1].message.content);
+
+  saveResponse('text', prompt, "2.0", content, response);
+
+  res.send(fullContent(content));
+});
+
+*/
+
+
 
 app.get('/text', async (req, res) => {
   const topic = req.query.topic;
