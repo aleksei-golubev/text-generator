@@ -3,7 +3,7 @@ import path from 'path';
 import { OpenAI } from 'openai';
 
 import { basicPrompt, dialogPrompt } from './admin/backend/prompts.mjs';
-import { getMockedContent, getMockedDialogContent, loadSchema, saveResponse, loadOpenApiKey } from './admin/backend/files.mjs';
+import { getMockedContent, getMockedDialogContent, loadSchema, saveResponse, loadOpenApiKey, saveRawResponse } from './admin/backend/files.mjs';
 import { getDir } from './shared/utils.mjs';
 import { fullContent } from './shared/templates/full-content.mjs';
 import { completion } from './admin/backend/completion.mjs';
@@ -12,6 +12,8 @@ import { overrideGetFromSharedDir } from './admin/backend/utils.mjs';
 const __dirname = getDir(import.meta.url);
 const responseSchemaVersion = "1.0";
 const responseSchema = loadSchema(responseSchemaVersion);
+const responseSchema2 = loadSchema("2.0");
+
 const port = 3000;
 
 const app = express();
@@ -30,6 +32,25 @@ overrideGetFromSharedDir(__dirname, app, {
   '/favicon.svg': './shared/frontend/favicon.svg'
 })
 
+// app.get('/text', async (req, res) => {
+//   const topic = req.query.topic;
+//   const level = req.query.level;
+
+//   console.log(`Generate: "${topic}", ${level}`);
+
+//   let prompt = basicPrompt(topic, level);
+
+//   const response = await completion('gpt-5', aiClient, prompt, responseSchema2);
+
+//   saveRawResponse(prompt, response, "2.0");
+
+//   const content = JSON.parse(response.choices[response.choices.length - 1].message.content);
+
+//   saveResponse('text', prompt, "2.0", content, response);
+
+//   res.send(fullContent(content));
+// });
+
 app.get('/text', async (req, res) => {
   const topic = req.query.topic;
   const level = req.query.level;
@@ -38,7 +59,10 @@ app.get('/text', async (req, res) => {
 
   let prompt = basicPrompt(topic, level);
 
-  const response = await completion(aiClient, prompt, responseSchema);
+  const response = await completion('gpt-4o-mini', aiClient, prompt, responseSchema);
+
+  saveRawResponse(prompt, response, responseSchemaVersion);
+
   const content = JSON.parse(response.choices[response.choices.length - 1].message.content);
 
   saveResponse('text', prompt, responseSchemaVersion, content, response);
@@ -52,7 +76,7 @@ app.post('/dialog', async (req, res) => {
 
   let prompt = dialogPrompt(params);
 
-  const response = await completion(aiClient, prompt, responseSchema);
+  const response = await completion('gpt-4o-mini', aiClient, prompt, responseSchema);
   const content = JSON.parse(response.choices[response.choices.length - 1].message.content);
 
   saveResponse('dialog', prompt, responseSchemaVersion, content, response);

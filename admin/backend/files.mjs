@@ -44,6 +44,17 @@ export function saveResponse(type, prompt, responseSchemaVersion, content, respo
     fs.writeFileSync(fileName, JSON.stringify(fileContent));
 }
 
+export function saveRawResponse(prompt, response, responseSchemaVersion) {
+    const fileContent = {
+        prompt: prompt,
+        response: response
+    }
+
+    const fileName =`./storage/${responseSchemaVersion}/raw/${generateFileName('raw')}.json`;
+    console.log(`Saved raw response to file: ${fileName}`);
+    fs.writeFileSync(fileName, JSON.stringify(fileContent));
+}
+
 export function getMockedContent(responseSchemaVersion) {
     const mockFile = `./storage/${responseSchemaVersion}/texts/apawl_2024-12-29_16-44-44.json`;
     console.log(`Load mocked data: ${mockFile}`);
